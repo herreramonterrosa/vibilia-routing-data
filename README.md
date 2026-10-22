@@ -1,6 +1,6 @@
 # vibilia-routing-data
 
-This is a static data repository for the instance explorer. It contains saved, independently audited routes and the geometry needed to draw them. It contains no solver binaries, dense cost matrices, raw benchmark archives, or credentials.
+This is a static data repository for the instance explorer. It contains saved, independently audited routes and the geometry needed to draw them, with separate historical evidence archives. The route dataset contains no solver binaries, dense cost matrices, or credentials.
 
 The application requests `manifest.json` once, then only the chosen example's `scenarios/<example-id>.<sha256>.json`. The SHA-256 in the manifest verifies the exact response bytes. A scenario contains coordinates, source node IDs, demands, service times, time windows and route bounds, plus each measured method's status, original cost, fleet, actual elapsed time, time budget and measurement provenance. Coordinate-free instances use an explicitly schematic layout. Non-solutions have empty routes and retain their failure status; they do not imply mathematical infeasibility.
 
@@ -29,14 +29,18 @@ projects/
 From `vibilia-routing/`, use Node 24 or newer and run:
 
 ```sh
-pnpm export:instance-solutions --output ../vibilia-routing-data
+pnpm export:instance-solutions
 git -C ../vibilia-routing-data status --short
 git -C ../vibilia-routing-data add README.md .gitignore manifest.json scenarios
 git -C ../vibilia-routing-data commit -m "Update saved routing solutions"
 git -C ../vibilia-routing-data push origin main
 ```
 
-The export reads the latest completed audited catalog report, verifies its source and recovery provenance, rechecks stored routes against original constraints and costs, and adds distinct historical measured budgets. It does not run a solver. It writes content-hashed scenario files first and replaces the manifest last. Existing unchanged files are reused; older hashed files are retained so cached manifests continue to resolve. Publish the new manifest and its referenced files together. Raw reports and source caches remain in the application benchmark workspace and are not copied here.
+The default export destination is this sibling checkout. Set `VIBILIA_ROUTING_DATA_DIR` to use a different data checkout, including its raw workspace. An explicit `--output` may select another external directory; writing result copies inside the application is rejected, including symbolic-link aliases. The export reads the latest completed audited catalog report from the data checkout's `benchmarks/` workspace, verifies its source and recovery provenance, rechecks stored routes against original constraints and costs, and adds distinct historical measured budgets. It does not run a solver. It writes content-hashed scenario files first and replaces the manifest last. Existing unchanged files are reused; older hashed files are retained so cached manifests continue to resolve. Publish the new manifest and its referenced files together.
+
+Later exports preserve existing `README.md`, `.gitignore` and `history/` contents. Numeric summaries from the older publication scripts go to `comparisons/catalog.json` and `comparisons/route-limits.json`, separate from the current routes and historical archive. The application does not fetch these summaries during normal browsing.
+
+Raw benchmark reports, audits and cached sources belong to the ignored `benchmarks/` workspace in this checkout. A lossless archive under `history/benchmark-workspace/` preserves those files with their original paths and SHA-256 hashes, without adding thousands of unpacked generated JSON files to Git. Restore that workspace before exporting from a fresh checkout; the application's route viewer does not need it.
 
 Time measurements retain the original protocol: the recorded solve budget includes preparation, worker/runtime and engine initialization, search and runner validation. Source download/import, matrix construction before the measured solve and the independent audit are outside that historical clock. Do not describe these single measurements as repeatable guarantees or as the speed of the viewer's device. Methods measured under different builds remain explicitly identified by their provenance.
 
