@@ -41,3 +41,7 @@ The export reads the latest completed audited catalog report, verifies its sourc
 Time measurements retain the original protocol: the recorded solve budget includes preparation, worker/runtime and engine initialization, search and runner validation. Source download/import, matrix construction before the measured solve and the independent audit are outside that historical clock. Do not describe these single measurements as repeatable guarantees or as the speed of the viewer's device. Methods measured under different builds remain explicitly identified by their provenance.
 
 The source SHA-256 and original reference URLs are preserved with each observation. Third-party benchmark instances and references retain their original attribution and terms; this export does not relicense them.
+
+## Historical measurements
+
+An independent [historical archive](history/README.md) preserves 544 additional numeric measurements and a lossless compressed copy of the earlier comparison publication. It retains original budgets, outcomes, quarantine information and provenance. It does not replace the root manifest or current saved routes, and the application does not fetch it during normal browsing.
