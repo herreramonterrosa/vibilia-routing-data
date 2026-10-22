@@ -45,3 +45,7 @@ The source SHA-256 and original reference URLs are preserved with each observati
 ## Historical measurements
 
 An independent [historical archive](history/README.md) preserves 544 additional numeric measurements and a lossless compressed copy of the earlier comparison publication. It retains original budgets, outcomes, quarantine information and provenance. It does not replace the root manifest or current saved routes, and the application does not fetch it during normal browsing.
+
+## Benchmark workspace archive
+
+Legacy reports, checkpoints and audit evidence are preserved byte for byte in [history/benchmark-workspace](history/benchmark-workspace/README.md). The application writes future benchmark outputs directly into this checkout; raw work files are ignored, and viewer exports remain versioned in manifest.json and scenarios/.
