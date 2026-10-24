@@ -6,3 +6,6 @@ Thumbs.db
 /benchmarks/
 /mydev/
 /scripts/snapshots/
+
+# Generated full numeric/route publications; preserve releases as verified archives.
+/comparisons/

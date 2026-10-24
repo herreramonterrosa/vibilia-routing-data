@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "reportPath": "benchmarks/catalog-comparison/catalog-2026-10-23-vroom-memory-admission-d5a6e542696129a4/report.json",
+  "reportSha256": "928389dd228a6cc6fd2351364352df2327dceac385e5b6be5a49f7eda03812dc",
+  "baselineSha256": "3ee46f4ce014042ceec8cbb776678ec628fb262aa92ff0498d76e5d4efcc638a",
+  "repairSeriesSha256": "82e72c2913530a4861129a5a373065287053f4fdacddee84d9a86c5fc706fb83",
+  "targetedExecutions": 38,
+  "completedRepairAttempts": 46,
+  "repairAttemptsByCohort": {
+    "catalog-2026-10-23-error-repair": 6,
+    "catalog-2026-10-23-pyvrp-repair": 3,
+    "catalog-2026-10-23-vroom-deadline": 1,
+    "catalog-2026-10-23-remaining-repair": 32,
+    "catalog-2026-10-23-vroom-memory-repair": 3,
+    "catalog-2026-10-23-vroom-memory-admission": 1
+  },
+  "protectedCatalogObservations": 4681,
+  "targetOutcomes": {
+    "no_solution": 24,
+    "feasible": 14
+  },
+  "remainingErrors": [],
+  "scenarios": 832,
+  "publishedMeasurements": 4773,
+  "protectedPublishedMeasurements": 4735,
+  "validRouteSets": 3627,
+  "scenariosWithoutValidRoutes": [
+    "cvrplib-ags-brussels1",
+    "cvrplib-ags-brussels2",
+    "cvrplib-ags-flanders1",
+    "cvrplib-ags-flanders2",
+    "cvrplib-li-li_26",
+    "cvrplib-li-li_28",
+    "cvrplib-li-li_29",
+    "cvrplib-li-li_30",
+    "cvrplib-li-li_31",
+    "cvrplib-xl-xl-n10001-k1570"
+  ],
+  "manifestSha256": "479edc9dc1872d5f0339697a5f92f5e8a29db4ecfdb48663b241528d3cdbd7fc"
+}

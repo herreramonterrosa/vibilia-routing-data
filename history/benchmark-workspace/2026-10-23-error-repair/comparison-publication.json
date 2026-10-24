@@ -1,0 +1,9 @@
+{
+  "kind": "catalog-comparison-publication",
+  "sourcePath": "comparisons/catalog.json",
+  "originalBytes": 120894980,
+  "originalSha256": "03cfae199355645b9e67e1e9188f45522a142a5cfe5ac11242796c6a62cfaa4d",
+  "archive": "catalog-comparison.03cfae199355645b9e67e1e9188f45522a142a5cfe5ac11242796c6a62cfaa4d.json.gz",
+  "archiveBytes": 5850520,
+  "archiveSha256": "7550f0c0ecd3737408fd4f7aa10980a28fc137cbc96b01ba18eb4d5af7dc9314"
+}
